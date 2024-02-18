@@ -1,9 +1,14 @@
-import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import MyTasks from '../components/tasks/MyTasks';
-import TaskCard from '../components/tasks/TaskCard';
-import AddTaskModal from '../components/ui/AddTaskModal';
+import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import MyTasks from "../components/tasks/MyTasks";
+import TaskCard from "../components/tasks/TaskCard";
+import { useState } from "react";
+import AddTaskModal from "../components/tasks/AddTaskModal";
 
 const Tasks = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+ 
+
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
@@ -18,8 +23,20 @@ const Tasks = () => {
             <button className="border-2 border-secondary/20 hover:border-primary hover:bg-primary rounded-xl h-10 w-10 grid place-content-center text-secondary hover:text-white transition-all">
               <BellIcon className="h-6 w-6" />
             </button>
-            {/* <button className="btn btn-primary">Add Task</button> */}
-            <AddTaskModal/>
+
+
+
+            {/* modal open button */}
+            <button
+              onClick={()=> setIsOpen(!isOpen)}
+              className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 hover:cursor-pointer"
+            >
+              Add Task
+            </button>
+          
+          {/* add task modal */}
+          <AddTaskModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+
             <div className="h-10 w-10 rounded-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=644&q=80"
