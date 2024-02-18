@@ -12,7 +12,7 @@ const initialState = {
         priority: 'High',
       },
       {
-        id: 1,
+        id: 2,
         status: 'completed',
         title: 'Remove Button',
         description:
@@ -35,10 +35,18 @@ const tasksSlice = createSlice({
                 state.tasks.push({id: lastElement.id+1,status: "pending", ...payload})
             }
            
+        },
+        removeTask: (state, {payload})=> {
+          const remainingTasks = state.tasks.filter(item => item.id !== payload)
+         
+        },
+        updateStatus: (state, {payload})=>{
+          const target = state.tasks.find(item=> item.id === payload.id)
+          target.status = payload.status;
         }
     },
 })
 
-export const {addTask} = tasksSlice.actions;
+export const {addTask, removeTask, updateStatus} = tasksSlice.actions;
 
 export default tasksSlice.reducer
