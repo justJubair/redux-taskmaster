@@ -37,7 +37,7 @@ const tasksSlice = createSlice({
            
         },
         removeTask: (state, {payload})=> {
-          const remainingTasks = state.tasks.filter(item => item.id !== payload)
+          state.tasks = state.tasks.filter(item => item.id !== payload)
          
         },
         updateStatus: (state, {payload})=>{
