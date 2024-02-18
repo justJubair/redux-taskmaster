@@ -47,7 +47,7 @@ const AddTaskModal = ({isOpen, setIsOpen}) => {
             {/* assign to */}
             <div className="flex flex-col gap-2">
             <label htmlFor="assign to">Assign to</label>
-            <select defaultValue="default" className="w-full rounded-md" name="assign to" {...register("assign to")}>
+            <select defaultValue="default" className="w-full rounded-md" name="assign to" {...register("assignedTo")}>
                 <option value="default" disabled>Select a member</option>
                 <option value="Joey Tribbiani">Joey Tribbiani</option>
                 <option value="Ross Geller">Ross Geller</option>
@@ -61,7 +61,7 @@ const AddTaskModal = ({isOpen, setIsOpen}) => {
             <select defaultValue="default" className="w-full rounded-md" name="priority" {...register("priority")}>
                 <option value="default" disabled>Choose a priority</option>
                 <option value="High">High</option>
-                <option value="Moderate">Moderate</option>
+                <option value="Medium">Moderate</option>
                 <option value="Low">Low</option>
             </select> 
             </div>
